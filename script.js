@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function(){
             // set its inner HTML (the content that we display within the
             // li)
             listItem.innerHTML = `${t.name}  (urgency: ${t.urgency})
-             <button class="btn btn-primary btn-sm edit-btn">Edit</button>
-             <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+             <button class="btn btn-primary btn-sm edit-btn"><i class="fas fa-edit"></i></button>
+             <button class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
             `
             // in this specific <li> element, look for a button with the class `edit-btn`
             listItem.querySelector(".edit-btn").addEventListener("click", function(){
