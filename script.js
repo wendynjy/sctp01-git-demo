@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function(){
         // addTodo(todos, "Clean the house", 3);
         // addTodo(todos, "Buy grocery", 3);
         renderTodos(todos);
-       
 
         // attach all the event listeners
         document.querySelector("#addTodo")
@@ -16,51 +15,54 @@ document.addEventListener("DOMContentLoaded", function(){
                 const taskUrgencyElement = document.querySelector("#taskUrgency");
                 const taskUrgency = taskUrgencyElement.value;
 
-                addTodo(todos, taskName, taskUrgency );
+                const taskAssignElement = document.querySelector("#taskAssign");
+                const taskAssign = taskAssignElement.value;
+
+                addTodo(todos, taskName, taskUrgency, taskAssign);
                 renderTodos(todos); // redraw the list of tasks
             })
         
     }
-  
+
     function renderTodos(todos) {
-        const todoListElement = document.querySelector("#todoList");
-        todoListElement.innerHTML = ""; // reset the content 
-        for (let t of todos) {
-            // create an empty <li>
-            const listItem = document.createElement('li');
+        const todoListElement = document.querySelector("#todoList tbody");
+        todoListElement.innerHTML = ""; // Clear existing content
 
-            // set the class of the newly created element
-            listItem.className = "list-group-item"
-
-            // set its inner HTML (the content that we display within the
-            // li)
-            listItem.innerHTML = `${t.name}  (urgency: ${t.urgency})
-             <button class="btn btn-primary btn-sm edit-btn"><i class="fas fa-edit"></i></button>
-             <button class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
-            `
-            // in this specific <li> element, look for a button with the class `edit-btn`
-            listItem.querySelector(".edit-btn").addEventListener("click", function(){
-                // the annoymous function that is being created remember what `t` was referring
-                // at the point that is being created
-                
-                // ask the user for the new task name and the new urgency
-                const newTaskName = prompt("Please enter the new task name: ", t.name);
-                const newTaskUgrency = prompt("Please enter the new task urgency", t.urgency);
-
-                modifyTask(todos, t.id, newTaskName, newTaskUgrency  );
-                renderTodos(todos);
-            });
-
-            // select the delete button that is in the li element
-            listItem.querySelector(".delete-btn").addEventListener("click", function(){
-                deleteTask(todos, t.id);
-                renderTodos(todos);
-            });
-
-           todoListElement.appendChild(listItem);
+        // Loop through the todos array and create table rows
+        for (let i = 0; i < todos.length; i++) {
+            const todo = todos[i];
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${i + 1}</td>
+                <td>${todo.name}</td>
+                <td>${todo.urgency}</td>
+                <td>${todo.assign}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            `;
+                // Set the class for the table row
+                row.className = "table table-hover-item";
+        
+                // Add event listeners to the edit and delete buttons for this row
+                const editButton = row.querySelector(".edit-btn");
+                editButton.addEventListener("click", () => {
+                    const newTaskName = prompt("Please enter the new task name:", todo.name);
+                    const newTaskUrgency = prompt("Please enter the new task urgency:", todo.urgency);
+                    const newAssign = prompt("Who are you assigning the task to?", todo.assign);
+                    modifyTask(todos, todo.id, newTaskName, newTaskUrgency, newAssign);
+                    renderTodos(todos);
+                });
+        
+                const deleteButton = row.querySelector(".delete-btn");
+                deleteButton.addEventListener("click", () => {
+                    deleteTask(todos, todo.id);
+                    renderTodos(todos);
+                });
+            todoListElement.appendChild(row);
         }
     }
-
 
     main();
 })

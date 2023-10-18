@@ -1,15 +1,16 @@
 let todos = [];
 
-function addTodo(todos, name, urgency) {
+function addTodo(todos, name, urgency, assign) {
   let newTodo = {
     id: Math.floor(Math.random() * 100 + 1),
     name: name,
-    urgency: urgency
+    urgency: urgency,
+    assign: assign
   };
   todos.push(newTodo);
 }
 
-function modifyTask(todos, id, newTaskName, newUrgency) {
+function modifyTask(todos, id, newTaskName, newUrgency, newAssign) {
   let task = null;
   for (let t of todos) {
     if (t.id == id) {
@@ -19,6 +20,7 @@ function modifyTask(todos, id, newTaskName, newUrgency) {
   if (task) {
     task.name = newTaskName;
     task.urgency = newUrgency;
+    task.assign = newAssign;
   } else {
     console.log("Task is not found");
   }

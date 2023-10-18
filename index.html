@@ -20,9 +20,26 @@
                 <label>Urgency:</label>
                 <input type="text" id="taskUrgency" class="form-control mt-3"/>
             </div>
+            <div>
+                <label>Assign To:</label>
+                <input type="text" id="taskAssign" class="form-control mt-3"/>
+            </div>
             <button id="addTodo" class="btn btn-primary mt-3">Add To Do</button>
         </div>
-        <ul id="todoList" class="list-group mt-3"></ul>
+        <table id="todoList" class="table table-hover mt-3">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Task</th>
+                  <th scope="col">Urgency</th>
+                  <th scope="col">Assign To</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+        </table>
     </div>
 
     <!-- Including data.js and script.js -->
