@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 editButton.addEventListener("click", () => {
                     const newTaskName = prompt("Please enter the new task name:", todo.name);
                     const newTaskUrgency = prompt("Please enter the new task urgency:", todo.urgency);
-                    const newAssign = prompt("Who are you assigning the task to?", todo.assign);
-                    modifyTask(todos, todo.id, newTaskName, newTaskUrgency, newAssign);
+                    const newTaskAssign = prompt("Who are you assigning the task to:", todo.assign);
+                    modifyTask(todos, todo.id, newTaskName, newTaskUrgency, newTaskAssign);
                     renderTodos(todos);
                 });
         
