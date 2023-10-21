@@ -1,6 +1,8 @@
-document.addEventListener("DOMContentLoaded", function(){
-    function main(){
-        let todos = [];
+document.addEventListener("DOMContentLoaded", async function(){
+    
+    async function main(){
+
+        let todos = await loadTask();
         // addTodo(todos, "Walk the dog", 5);
         // addTodo(todos, "Clean the house", 3);
         // addTodo(todos, "Buy grocery", 3);
