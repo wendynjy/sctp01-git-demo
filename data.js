@@ -5,7 +5,7 @@ const MASTER_KEY = "$2a$10$RJ1uEork7KfIInoLUpFzIuhMEwXmN8VJiX6JGeO9lLpA59P0qW0tK
 
 
 async function loadTask() {
-  const response = await axios.get(`${BASE_JSON_BIN_URL}/b/${BIN_ID}`);
+  const response = await axios.get(`${BASE_JSON_BIN_URL}/b/${BIN_ID}/latest`);
   console.log(response);
   return response.data.record;
 }

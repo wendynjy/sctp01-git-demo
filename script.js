@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         document.querySelector("#save-btn")
             .addEventListener("click", async function(){
-                await saveTasks(todos);
+                await saveTask(todos);
                  // Use SweetAlert2 with a close button
                 Swal.fire({
                     icon: 'success',
