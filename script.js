@@ -23,6 +23,17 @@ document.addEventListener("DOMContentLoaded", function(){
                 addTodo(todos, taskName, taskUrgency, taskAssign);
                 renderTodos(todos); // redraw the list of tasks
             })
+
+        document.querySelector("#save-btn")
+            .addEventListener("click", async function(){
+                await saveTasks(todos);
+                 // Use SweetAlert2 with a close button
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Tasks have been saved',
+                    showConfirmButton: true,
+                });
+            })
         
     }
 
