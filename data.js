@@ -3,6 +3,7 @@ const BIN_ID = "65334ea50574da7622bbaa36";
 // For assessment purpose only 
 const MASTER_KEY = "$2a$10$RJ1uEork7KfIInoLUpFzIuhMEwXmN8VJiX6JGeO9lLpA59P0qW0tK";
 
+
 async function loadTask() {
   const response = await axios.get(`${BASE_JSON_BIN_URL}/b/${BIN_ID}`);
   console.log(response);
@@ -10,8 +11,8 @@ async function loadTask() {
 }
 
 async function saveTask(todos) {
-  const response = await axios.put(`${BASE_JSON_BIN_URL}/b/${BIN_ID}`, todos, {
-    "content-type": "application/json",
+  const response = await axios.put(`${BASE_JSON_BIN_URL}/b/${BIN_ID}`, todos,{
+    "content-type":"application/json",
     "X-Master-Key": MASTER_KEY
   });
   console.log(response.data);
