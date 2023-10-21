@@ -12,22 +12,34 @@
 </head>
 <body>
     <div class="container">
-        <h1>Todo App</h1>
-        <div>
-            <div>
-                <label>Task Name:</label>
-                <input type="text" id="taskName" class="form-control mt-3"/>
+        <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
+            <i class="fas fa-check-square me-1"></i>
+            <u>My Todo-s</u>
+        </p>
+        <div class="pb-2">
+            <div class="card">
+                <div class="card-body">
+                <div class="d-flex flex-row align-items-center">  
+                    <input type="text" class="form-control form-control-lg mb-3" id="taskName"
+                    placeholder="Enter task name">
+                </div>
+                <div class="d-flex flex-row align-items-center">  
+                    <input type="text" class="form-control form-control-lg mb-3" id="taskUrgency"
+                        placeholder="Enter task urgency">
+                </div>
+                <div class="d-flex flex-row align-items-center">  
+                    <input type="text" class="form-control form-control-lg mb-3" id="taskAssign"
+                        placeholder="Enter who to do the task">
+                </div>
+
+                <div>
+                    <button id="addTodo" type="button" class="btn btn-primary">Add</button>
+                </div>
+                </div>
             </div>
-            <div>
-                <label>Urgency:</label>
-                <input type="text" id="taskUrgency" class="form-control mt-3"/>
-            </div>
-            <div>
-                <label>Assign To:</label>
-                <input type="text" id="taskAssign" class="form-control mt-3"/>
-            </div>
-            <button id="addTodo" class="btn btn-primary mt-3">Add To Do</button>
         </div>
+
+        <hr class="my-4">
         <table id="todoList" class="table table-hover mt-3">
             <thead>
                 <tr>
