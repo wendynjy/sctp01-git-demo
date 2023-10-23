@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function(){
                 const taskNameElement = document.querySelector("#taskName");
                 const taskName = taskNameElement.value;
 
-                const taskUrgencyElement = document.querySelector("#taskUrgency");
-                const taskUrgency = taskUrgencyElement.value;
+                const taskPriorityElement = document.querySelector("#taskPriority");
+                const taskPriority = taskPriorityElement.value;
 
                 const taskAssignElement = document.querySelector("#taskAssign");
                 const taskAssign = taskAssignElement.value;
 
-                addTodo(todos, taskName, taskUrgency, taskAssign);
+                addTodo(todos, taskName, taskPriority, taskAssign);
                 renderTodos(todos); // redraw the list of tasks
             })
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
             row.innerHTML = `
                 <td>${i + 1}</td>
                 <td>${todo.name}</td>
-                <td>${todo.urgency}</td>
+                <td>${todo.priority}</td>
                 <td>${todo.assign}</td>
                 <td>
                     <button class="btn btn-primary btn-sm edit-btn"><i class="fas fa-edit"></i></button>
@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function(){
                 const editButton = row.querySelector(".edit-btn");
                 editButton.addEventListener("click", () => {
                     const newTaskName = prompt("Please enter the new task name:", todo.name);
-                    const newTaskUrgency = prompt("Please enter the new task urgency:", todo.urgency);
+                    const newTaskPriority = prompt("Please enter the new task priority:", todo.priority);
                     const newTaskAssign = prompt("Who are you assigning the task to:", todo.assign);
-                    modifyTask(todos, todo.id, newTaskName, newTaskUrgency, newTaskAssign);
+                    modifyTask(todos, todo.id, newTaskName, newTaskPriority, newTaskAssign);
                     renderTodos(todos);
                 });
         

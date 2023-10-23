@@ -18,17 +18,17 @@ async function saveTask(todos) {
   console.log(response.data);
 }
 
-function addTodo(todos, name, urgency, assign) {
+function addTodo(todos, name, priority, assign) {
   let newTodo = {
     id: Math.floor(Math.random() * 100 + 1),
     name: name,
-    urgency: urgency,
+    priority: priority,
     assign: assign
   };
   todos.push(newTodo);
 }
 
-function modifyTask(todos, id, newTaskName, newUrgency, newAssign) {
+function modifyTask(todos, id, newTaskName, newPriority, newAssign) {
   let task = null;
   for (let t of todos) {
     if (t.id == id) {
@@ -37,7 +37,7 @@ function modifyTask(todos, id, newTaskName, newUrgency, newAssign) {
   }
   if (task) {
     task.name = newTaskName;
-    task.urgency = newUrgency;
+    task.priority = newPriority;
     task.assign = newAssign;
   } else {
     console.log("Task is not found");
