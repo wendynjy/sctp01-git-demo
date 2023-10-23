@@ -32,6 +32,13 @@ document.addEventListener("DOMContentLoaded", function(){
                     icon: 'success',
                     title: 'Tasks have been saved',
                     showConfirmButton: true,
+                    }).then((result) => {
+                    // Check if the "OK" button was clicked
+                    if (result.isConfirmed) {
+                        // Refresh the page
+                        window.location.reload();
+                    }
+               
                 });
             })
         
